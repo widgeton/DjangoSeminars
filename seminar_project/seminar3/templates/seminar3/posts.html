@@ -1,0 +1,16 @@
+{% extends 'seminar3/base.html' %}
+
+{% block title %}Статьи{% endblock %}
+
+{% block content %}
+    <h2>Статьи автора</h2>
+    <ul>
+    {% for post in posts %}
+        {% if post.pub_flag %}
+            <li><a style="color: blue;" class="nav-link" href="{% url 'post' post.id %}">{{ post.title }}</a></li>
+        {% else %}
+            <li>{{ post.title }}</li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+{% endblock %}
